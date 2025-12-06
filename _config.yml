@@ -1,0 +1,8 @@
+plugins:
+  - jekyll-redirect-from
+
+# GitHub Pages configuration
+enforce_ssl: https://yashraut.github.io/TextUtils
+
+# Build settings
+markdown: kramdown
