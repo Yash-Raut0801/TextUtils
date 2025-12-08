@@ -66,16 +66,16 @@ export default function TextForm(props) {
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
-  const wordCount = (text) => {
-    if(text.length !== 0)
-    {
-      return text.split(" ").length;
-    }
-    else
-    {
-      return 0;
-    }
-  }
+  // const wordCount = (text) => {
+  //   if(text.length !== 0)
+  //   {
+  //     return text.split(" ").length;
+  //   }
+  //   else
+  //   {
+  //     return 0;
+  //   }
+  // }
   const [text, setText] = useState("");
   return (
     <>
@@ -84,19 +84,19 @@ export default function TextForm(props) {
         <div className="mb-3">
           <textarea className="form-control" style={{backgroundColor:props.mode==='light'?'white':'#020736', color:props.mode==='light'?'black':'white'}} id="box" rows="10" value={text} onChange={handleOnChange}></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to UpperCase</button>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>Convert to LowerCase</button>
-        <button className="btn btn-primary mx-1" onClick={handleClearClick}>Clear Text</button>
-        <button className="btn btn-primary mx-1" onClick={handleTitleClick}>Convert to TitleCase(<i>Only first letter is capitalazied</i>)</button>
-        <button className="btn btn-primary mx-1" onClick={handleTurkUpClick}>Convert to TurkishUpperCase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to UpperCase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to LowerCase</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear Text</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleTitleClick}>Convert to TitleCase(<i>Only first letter is capitalazied</i>)</button>
+        <button className="btn btn-primary mx-1 my-1" onClick={handleTurkUpClick}>Convert to TurkishUpperCase</button>
         <button className="btn btn-primary mx-1 my-1" onClick={speak} id="toggle">Speak</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>Copy Text</button>
         <button className="btn btn-primary mx-1 my-1" onClick={handleExSpcClick}>Remove Extra Spaces</button>
       </div>
       <div className="container my-3" style={{color: props.mode === 'light' ? 'black':'white' }}>
         <h2>Your Text Summary</h2>
-        <p><i>{wordCount(text)} words, {text.length} characters</i></p>
-        <p><b>{0.008 * text.split(" ").length} Minutes read</b></p>
+        <p><i>{text.split(" ").filter((el)=>{return el.length!==0}).length} words, {text.length} characters</i></p>
+        <p><b>{0.008 * text.split(" ").filter((el)=>{return el.length!==0}).length} Minutes read</b></p>
         <h3>Preview</h3>
         <p>{text.length>0?text:"Enter something in the above text-box to preview it here."}</p>
       </div>
