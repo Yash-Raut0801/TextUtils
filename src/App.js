@@ -21,7 +21,18 @@ function App() {
       setAlert(null);
     }, 1500);
   }
+  // const removeBodyClass=()=>{
+  //   document.body.classList.remove('bg-light');
+  //   document.body.classList.remove('bg-dark');
+  //   document.body.classList.remove('bg-primary');
+  //   document.body.classList.remove('bg-warning');
+  //   document.body.classList.remove('bg-success');
+  //   document.body.classList.remove('bg-danger');
+  // }
   const toggleMode = () => {
+    // removeBodyClass();
+    // console.log(cls);
+    // document.body.classList.add('bg-'+cls);
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = '#020736';
@@ -42,7 +53,8 @@ function App() {
       <div className="container my-3">
         <Routes>
               <Route exact path="/about" element={<About mode={mode}/>}/>
-              <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter Your Text To Analyze Below: " mode={mode} />}/>
+              <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter,
+              Remove Extra Spaces" mode={mode} />}/>
         </Routes>
       </div>
     </Router>

@@ -6,7 +6,7 @@ export default function About(props) {
   // });
   let myStyle = {
     color: props.mode === 'dark'?'white':'black',
-    backgroundColor: props.mode === 'dark'?'rgb(18 32 156)':'white',
+    backgroundColor: props.mode === 'dark'?'rgb(18 32 156)':'white'
   }
   return (
     <div className="accordion" id="accordionExample" >
